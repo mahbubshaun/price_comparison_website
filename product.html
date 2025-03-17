@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuneec Breeze 4K - Product Details | Re-Compare</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        header {
+            background-color: #1a1a1a;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+        }
+        
+        .logo {
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-menu a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .cart-icon {
+            position: relative;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #ff3a2f;
+            color: white;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Product header */
+        .product-header {
+            background-color: #f0f0f0;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .product-header-left {
+            display: flex;
+            align-items: center;
+        }
+        
+        .product-header-left img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .product-header-right {
+            display: flex;
+            align-items: center;
+        }
+        
+        .price-section {
+            margin-right: 15px;
+            text-align: right;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .choose-offer-btn {
+            background-color: #ff3a2f;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 10px 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .breadcrumb a {
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            margin: 0 5px;
+        }
+        
+        /* Main content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+        }
+        
+        .product-left {
+            width: 65%;
+            padding-right: 30px;
+        }
+        
+        .product-right {
+            width: 35%;
+        }
+        
+        /* Product title */
+        .product-title {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .product-title h1 {
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .brand-icon {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background-color: #dc3545;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+        
+        .brand-icon i {
+            color: white;
+            font-size: 12px;
+        }
+        
+        /* Product rating */
+        .product-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .stars {
+            color: #ffc107;
+            margin-right: 10px;
+        }
+        
+        .reviews-link {
+            color: #007bff;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        
+        .reviews-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Product gallery */
+        .product-gallery {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 30px;
+        }
+        
+        .main-image {
+            border: 1px solid #ddd;
+            padding: 20px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            margin-bottom: 15px;
+        }
+        
+        .main-image img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .thumbnail-container {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .thumbnail {
+            border: 1px solid #ddd;
+            padding: 5px;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background-color: white;
+        }
+        
+        .thumbnail.active {
+            border-color: #007bff;
+        }
+        
+        .thumbnail img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        /* Product details */
+        .product-details {
+            margin-bottom: 30px;
+        }
+        
+        .price-details {
+            margin-bottom: 20px;
+        }
+        
+        .current-price {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .best-deal {
+            font-size: 14px;
+            color: #666;
+            display: flex;
+            gap: 5px;
+        }
+        
+        .best-deal img {
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+        }
+        
+        .buy-button {
+            background-color: #ff3a2f;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            margin: 10px 0;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+        
+        /* Features list */
+        .features-list {
+            margin-bottom: 30px;
+        }
+        
+        .features-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            list-style: none;
+        }
+        
+        .features-list li i {
+            color: #333;
+            margin-right: 10px;
+            margin-top: 4px;
+        }
+        
+        /* Store comparison */
+        .store-comparison {
+            margin-top: 30px;
+        }
+        
+        .store-row {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .store-logo {
+            width: 70px;
+            margin-right: 15px;
+        }
+        
+        .store-logo img {
+            max-width: 100%;
+        }
+        
+        .store-price {
+            flex-grow: 1;
+            font-weight: bold;
+            color: #dc3545;
+        }
+        
+        .buy-now-btn {
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        
+        /* Action buttons */
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .action-button {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: white;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        
+        .action-button i {
+            margin-right: 5px;
+        }
+        
+        /* Top offers section */
+        .top-offers {
+            background-color: #1a1a1a;
+            color: white;
+            /* padding: 15px; */
+            /* border-radius: 4px; */
+            /* margin-bottom: 20px; */
+            position: sticky;
+            top: 50px;
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+            justify-content: center;
+        }
+        
+        .top-offers h3 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            font-size: 16px;
+        }
+        
+        .top-offers h3 i {
+            margin-right: 8px;
+        }
+        
+        .offers-container {
+            display: flex;
+            flex-direction: column;
+            /* gap: 15px; */
+        }
+        
+        .offer-card {
+            background-color: white;
+            /* border-radius: 4px; */
+            overflow: hidden;
+            display: flex;
+            color: #333;
+            border-bottom: 1px solid rgba(206,206,206,.3);
+        }
+        
+        .offer-image {
+            width: 80px;
+            height: 80px;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .offer-image img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .offer-details {
+            padding: 10px;
+            flex-grow: 1;
+            font-size: 13px;
+        }
+        
+        .offer-title {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .offer-price {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        
+        .choose-button {
+            background-color: #ff3a2f;
+            color: white;
+            border: none;
+            padding: 3px 8px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 11px;
+            margin-top: 5px;
+        }
+        
+        /* Tabs content */
+        .tabs-container {
+            margin-top: 10px;
+        }
+        
+        .tab-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+        
+        .tab-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+        
+        .tab-title {
+            font-weight: 500;
+            font-size: 16px;
+        }
+        
+        .tab-content {
+            margin-bottom: 30px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .tab-content h3 {
+            margin: 20px 0 10px;
+            font-size: 18px;
+        }
+        
+        .tab-content p {
+            margin-bottom: 15px;
+        }
+        
+        .tab-content ul, .tab-content ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        /* Specifications table */
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        .specs-table tr {
+            border-bottom: 1px solid #eee;
+        }
+        
+        .specs-table td {
+            padding: 10px 5px;
+            font-size: 14px;
+        }
+        
+        .specs-table td:first-child {
+            font-weight: 500;
+            width: 40%;
+        }
+        
+        /* Videos section */
+        .videos-section {
+            margin-top: 40px;
+        }
+        
+        .video-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .video-thumbnail {
+            width: 180px;
+            height: 100px;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .play-icon i {
+            color: white;
+        }
+        
+        /* Related products */
+        .related-products {
+            margin-top: 40px;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .product-card-image {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+        
+        .product-card-image img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .product-card-content {
+            padding: 10px;
+        }
+        
+        .product-card-title {
+            font-size: 14px;
+            margin-bottom: 5px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        .product-card-title .brand-icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+        }
+        
+        .product-card-title .brand-icon i {
+            font-size: 8px;
+        }
+        
+        .product-card-price {
+            color: #dc3545;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .add-compare-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px 10px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        
+        .add-compare-btn i {
+            margin-right: 5px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-column {
+            width: 25%;
+        }
+        
+        .footer-column h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        
+        .footer-column p,
+        .footer-column a {
+            color: #ccc;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 5px;
+            text-decoration: none;
+        }
+        
+        .newsletter {
+            margin-top: 20px;
+        }
+        
+        .newsletter p {
+            margin-bottom: 10px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+        }
+        
+        .newsletter-form button {
+            background-color: #ff3a2f;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        
+        /* Expandable/collapsible sections */
+        .expandable-section {
+            /* margin-bottom: 15px; */
+            padding: 10px;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            /* padding: 10px 0; */
+            border-bottom: 1px solid #0e0d0d;
+        }
+        
+        .section-header-left {
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-icon {
+            margin-right: 10px;
+        }
+        
+        .section-content {
+            display: none;
+            padding: 20px;
+        }
+        
+        .section-content.active {
+            display: block;
+        }
+        
+        .chevron-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .section-header.active .chevron-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">PriceScout</a>
+        <div class="nav-menu">
+            <a href="shop.html">Shop</a>
+            <!-- <a href="#" class="orange">Unique Functions <i class="fas fa-caret-down"></i></a>
+            <a href="#">Best comparison pages <i class="fas fa-caret-down"></i></a> -->
+            <a href="#">My wishlist</a>
+            <!-- <a href="#">Tutorials</a> -->
+            <!-- <a href="#"><i class="fas fa-search"></i></a> -->
+        </div>
+    </header>
+
+    <div class="product-header">
+        <div class="product-header-left">
+            <img src="uploads/2017/08/YUNQ4KUS_01-scaled.jpg" alt="Yuneec logo">
+            <div>
+                <div>Yuneec Breeze A4</div>
+                <div style="font-size: 12px; color: #666;">Description · Additional information · Videos</div>
+            </div>
+        </div>
+        <div class="product-header-right">
+            <div class="price-section">
+                <div class="product-price">$149.99</div>
+            </div>
+            <button class="choose-offer-btn">CHOOSE OFFER</button>
+        </div>
+    </div>
+
+    <div class="breadcrumb">
+        <a href="#">Home</a> <span>></span>
+        <a href="#">Compact drones</a> <span>></span>
+        <span>Yuneec Breeze 4K</span>
+    </div>
+
+    <div class="main-content">
+        <div class="product-left">
+            <div class="product-title">
+                <h1><span class="brand-icon"><i class="fas fa-plane"></i></span> Yuneec Breeze 4K</h1>
+            </div>
+
+            <div class="product-rating">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <a href="#" class="reviews-link">Customer reviews</a>
+            </div>
+
+            <div class="product-gallery">
+                <div class="main-image">
+                    <img src="uploads/2017/08/YUNQ4KUS_01-scaled.jpg" alt="Yuneec Breeze 4K Drone">
+                </div>
+                <div class="thumbnail-container">
+                    <div class="thumbnail active">
+                        <img src="uploads/2017/08/YUNQ4KUS_02-scaled.jpg" alt="Yuneec Breeze 4K Front View">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="uploads/2017/08/YUNQ4KUS_03-scaled.jpg" alt="Yuneec Breeze 4K Side View">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="uploads/2017/08/YUNQ4KUS_04-scaled.jpg" alt="Yuneec Breeze 4K Top View">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="uploads/2017/08/YUNQ4KUS_05-scaled.jpg" alt="Yuneec Breeze 4K with Controller">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="uploads/2017/08/YUNQ4KUS_06-scaled.jpg" alt="Yuneec Breeze 4K Flying">
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-details">
+                <div class="features-list">
+                    <ul>
+                        <li><i class="fas fa-check"></i> Fully Automatic Creative Modes</li>
+                        <li><i class="fas fa-check"></i> Selfie, Pilot, Orbit & Follow Me Modes</li>
+                        <li><i class="fas fa-check"></i> Indoor Positioning System</li>
+                        <li><i class="fas fa-check"></i> Featuring breathtaking 4K Ultra High Definition</li>
+                    </ul>
+                </div>
+
+                <div class="price-details">
+                    <div class="current-price">$140.59</div>
+                    <div class="best-deal">
+                        <div class="deal-text">
+                            <span>Best deal at  </span>
+                        </div>
+                        <div class="deal-link">
+                            <img src="uploads/ce-logos/icon_ebay-com.png" alt="eBay logo">
+                        <span>eBay.com</span>
+
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+
+                <button class="buy-button">BUY FOR BEST PRICE</button>
+
+                <div class="action-buttons">
+                    <button class="action-button">
+                        <i class="fas fa-plus"></i> Add to compare
+                    </button>
+                    <button class="action-button">
+                        <i class="far fa-heart"></i> Add to wishlist
+                    </button>
+                </div>
+
+                <div class="store-comparison">
+                    <div class="store-row">
+                        <div class="store-logo">
+                            <img src="wp-content/plugins/content-egg/res/logos/ebay-com.png" alt="eBay logo">
+                        </div>
+                        <div class="store-price">$140.59</div>
+                        <button class="buy-now-btn buy-now-button-ebay">See it</button>
+                    </div>
+                    <div class="store-row">
+                        <div class="store-logo">
+                            <img src="uploads/ce-logos/newegg-com.png" alt="Newegg logo">
+                        </div>
+                        <div class="store-price">$179.99</div>
+                        <button class="buy-now-btn buy-now-button-newegg">See it</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tabs-container">
+                <div class="expandable-section">
+                    <div class="section-header active">
+                        <div class="section-header-left">
+                            <div class="section-icon"><i class="fas fa-info-circle"></i></div>
+                            <div class="section-title">Description</div>
+                        </div>
+                        <div class="chevron-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="section-content active">
+                        <h3>Your flying camera</h3>
+                        <p>Introducing Breeze, the flying camera designed with you in mind. Both convenient and compact, Breeze is controlled by your iOS or Android device with the Breeze Cam app and weighs just under 1 pound. Fly indoors or out to capture 4K Ultra High Definition Video & 13MP stills of your next great adventure.</p>
+                        
+                        <h3>Simply take Breeze out of the box and let it fly</h3>
+                        
+                        <h3>Complex shots made easy</h3>
+                        <p>Use one of the flying camera's five automated flight modes to capture unique shots. Use Selfie and Orbit modes to take dramatic aerial group photos and video or use Follow Me mode to grab compelling aerial footage of your action sports adventures. The shots that previously would have required a skilled pilot are now accessible with the click of a button. Soar to the skies and let Breeze do the work.</p>
+                        
+                        <h3>Safety first</h3>
+                        <p>Breeze has optical flow and infrared positioning sensors that let it hold its position indoors and outdoors, making it safe to fly in any situation. And for any reason, you can fly with confidence knowing that Breeze won't drift – no matter your experience or flight expertise. Additionally, there is an auto landing and auto return to home feature – no flight experience is necessary.</p>
+                        
+                        <h3>Superior image quality</h3>
+                        <p>Featuring breathtaking 4K Ultra High Definition and ultra-clear 13 megapixel stills, Breeze is just as capable as drones twice its size. Enjoy a live 720P HD live stream of your flight on your smart device.</p>
+                    </div>
+                </div>
+                
+                <div class="expandable-section">
+                    <div class="section-header">
+                        <div class="section-header-left">
+                            <div class="section-icon"><i class="fas fa-list"></i></div>
+                            <div class="section-title">Features</div>
+                        </div>
+                        <div class="chevron-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="section-content">
+                        <h3>Aircraft</h3>
+                        <ul>
+                            <li>Dimensions: 196 x 196 x 65 mm</li>
+                            <li>Take-off weight: 385 g</li>
+                            <li>Battery: 3S 11.1 V 1150 mAh LiPo</li>
+                            <li>Flight time: up to 12 minutes</li>
+                            <li>Maximum flying height: 80 m</li>
+                            <li>Maximum horizontal speed: 5 m/s (limited by software)</li>
+                            <li>Maximum climbing speed: 1 m/s</li>
+                        </ul>
+                        
+                        <h3>Camera</h3>
+                        <ul>
+                            <li>Working temperature: 0℃ ~ 40℃</li>
+                            <li>Sensor: 1/3.06 CMOS</li>
+                            <li>Effective pixels: 13 Megapixel</li>
+                            <li>Photo resolution: 4K - 4160 x 3120 pixels (13 MP)</li>
+                            <li>FOV: 117°</li>
+                            <li>Shutter speed: 1/30 ~ 1/8000s</li>
+                            <li>White balance: auto, sunny, sunset, cloudy, tungsten light, glowing, disabled</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="expandable-section">
+                    <div class="section-header">
+                        <div class="section-header-left">
+                            <div class="section-icon"><i class="fas fa-info-circle"></i></div>
+                            <div class="section-title">Additional information</div>
+                        </div>
+                        <div class="chevron-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="section-content">
+                        <div class="specs-table-container">
+                            <table class="specs-table">
+                                <tr>
+                                    <td>Flight Time (min)</td>
+                                    <td>12</td>
+                                </tr>
+                                <tr>
+                                    <td>Camera Type</td>
+                                    <td>4K - 4160 x 3120 pixels (13 MP)</td>
+                                </tr>
+                                <tr>
+                                    <td>Brand</td>
+                                    <td>Yuneec</td>
+                                </tr>
+                                <tr>
+                                    <td>Maximum Altitude (m)</td>
+                                    <td>80</td>
+                                </tr>
+                                <tr>
+                                    <td>Camera Lens (degrees)</td>
+                                    <td>117</td>
+                                </tr>
+                                <tr>
+                                    <td>Battery</td>
+                                    <td>3S 11.1 V (1150mAh) LiPo Battery (included)</td>
+                                </tr>
+                                <tr>
+                                    <td>Battery Type</td>
+                                    <td>3S 11.1 V (1150mAh) LiPo Battery (included)</td>
+                                </tr>
+                                <tr>
+                                    <td>Camera Sensor</td>
+                                    <td>1/3.06 CMOS</td>
+                                </tr>
+                                <tr>
+                                    <td>Controller</td>
+                                    <td>APP Controller</td>
+                                </tr>
+                                <tr>
+                                    <td>Camera</td>
+                                    <td>4K/30fps</td>
+                                </tr>
+                                <tr>
+                                    <td>Maximum Flight Time (min)</td>
+                                    <td>12</td>
+                                </tr>
+                                <tr>
+                                    <td>Remote Control Range (m)</td>
+                                    <td>100</td>
+                                </tr>
+                                <tr>
+                                    <td>Speed (regulated) (m/s)</td>
+                                    <td>5</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="expandable-section">
+                    <div class="section-header">
+                        <div class="section-header-left">
+                            <div class="section-icon"><i class="fas fa-play-circle"></i></div>
+                            <div class="section-title">Yuneec Breeze 4K Videos</div>
+                        </div>
+                        <div class="chevron-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="section-content">
+                        <div class="video-container">
+                            <div class="video-thumbnail" data-video-id="AFQ4IcSiehY">
+                                <img src="uploads/2017/08/1471549536000_IMG_672470-e1503684511631-1024x637.jpg" alt="Yuneec Breeze 4K Review Video">
+                                <div class="play-icon">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <div class="video-thumbnail" data-video-id="O9BVnNYiLNU">
+                                <img src="uploads/2017/08/3030-large-parrot-3030jpg.jpg" alt="Yuneec Breeze 4K Flight Test Video">
+                                <div class="play-icon">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="expandable-section">
+                    <div class="section-header">
+                        <div class="section-header-left">
+                            <div class="section-icon"><i class="fas fa-cube"></i></div>
+                            <div class="section-title">Related Products</div>
+                        </div>
+                        <div class="chevron-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="section-content">
+                        <div class="products-grid">
+                            <div class="product-card">
+                                <div class="product-card-image">
+                                    <img src="uploads/2017/08/3030-large-parrot-3030jpg.jpg" alt="Parrot BEBOP 2 FPV drone">
+                                </div>
+                                <div class="product-card-content">
+                                    <div class="product-card-title">
+                                        <span class="brand-icon"><i class="fas fa-feather-alt"></i></span>
+                                        Parrot BEBOP 2 FPV
+                                    </div>
+                                    <div class="product-card-price">$349.00</div>
+                                    <button class="add-compare-btn">
+                                        <i class="fas fa-plus"></i> Add to compare
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="product-card">
+                                <div class="product-card-image">
+                                    <img src="uploads/2017/08/dji-phantom-3-front-detail-788x523.jpg" alt="DJI Mini Pro 2 drone">
+                                </div>
+                                <div class="product-card-content">
+                                    <div class="product-card-title">
+                                        <span class="brand-icon"><i class="fas fa-rocket"></i></span>
+                                        DJI Mini Pro 2
+                                    </div>
+                                    <div class="product-card-price">$579.00</div>
+                                    <button class="add-compare-btn">
+                                        <i class="fas fa-plus"></i> Add to compare
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="product-card">
+                                <div class="product-card-image">
+                                    <img src="uploads/2017/08/3033-large-parrot-3033jpg.jpg" alt="GoPro Karma Drone">
+                                </div>
+                                <div class="product-card-content">
+                                    <div class="product-card-title">
+                                        <span class="brand-icon"><i class="fas fa-camera"></i></span>
+                                        GoPro Karma Drone
+                                    </div>
+                                    <div class="product-card-price">$319.99</div>
+                                    <button class="add-compare-btn">
+                                        <i class="fas fa-plus"></i> Add to compare
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="product-card">
+                                <div class="product-card-image">
+                                    <img src="uploads/2017/08/34314f75-3db2-4da0-aece-4300957876d7.jpg" alt="ZEROTECH DOBBY Mini Selfie Quadcopter">
+                                </div>
+                                <div class="product-card-content">
+                                    <div class="product-card-title">
+                                        <span class="brand-icon"><i class="fas fa-feather"></i></span>
+                                        ZEROTECH DOBBY Mini Selfie Quadcopter
+                                    </div>
+                                    <div class="product-card-price">$89.99</div>
+                                    <button class="add-compare-btn">
+                                        <i class="fas fa-plus"></i> Add to compare
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="product-card">
+                                <div class="product-card-image">
+                                    <img src="uploads/2017/08/3496-large-parrot-3496jpg.jpg" alt="Parrot FPV Combo Anafi Drone">
+                                </div>
+                                <div class="product-card-content">
+                                    <div class="product-card-title">
+                                        <span class="brand-icon"><i class="fas fa-feather-alt"></i></span>
+                                        Parrot FPV Combo Anafi Drone
+                                    </div>
+                                    <div class="product-card-price">$499.00</div>
+                                    <button class="action-button choose-button">
+                                        CHOOSE OFFER
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="product-right">
+            <div class="top-offers">
+                <h3><i class="fas fa-gift"></i> TOP OFFERS</h3>
+                <div class="offers-container">
+                    <div class="offer-card">
+                        <div class="offer-image">
+                            <img src="uploads/2018/01/51DFlew4KtL._SL1000_-350x350.jpg" alt="Swellpro Waterproof Splash Drone">
+                        </div>
+                        <div class="offer-details">
+                            <div class="offer-title">Swellpro Waterproof Splash Drone 3</div>
+                            <div class="offer-price">$1,199.00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-card">
+                        <div class="offer-image">
+                            <img src="uploads/2018/01/swellpro-splash-drone-3-waterproof-with-monitor-fisherman-quadcopter-rtf.jpg" alt="Eachine Wizard X220 FPV">
+                        </div>
+                        <div class="offer-details">
+                            <div class="offer-title">Eachine Wizard X220 FPV</div>
+                            <div class="offer-price">$216.00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-card">
+                        <div class="offer-image">
+                            <img src="uploads/2018/01/61XKsJoZPrL._SL1435_.jpg" alt="GoPro Karma Drone">
+                        </div>
+                        <div class="offer-details">
+                            <div class="offer-title">GoPro Karma Drone</div>
+                            <div class="offer-price">$319.99</div>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-card">
+                        <div class="offer-image">
+                            <img src="uploads/2017/08/large_4058afad-4331-40ab-9a4e-30b49c72447b.jpg" alt="ZEROTECH DOBBY Mini Selfie Quadcopter">
+                        </div>
+                        <div class="offer-details">
+                            <div class="offer-title">ZEROTECH DOBBY Mini Selfie Quadcopter</div>
+                            <div class="offer-price">$89.99</div>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-card">
+                        <div class="offer-image">
+                            <img src="uploads/2017/08/YUNQ4KUS_04-scaled.jpg" alt="Parrot FPV Combo Anafi Drone">
+                        </div>
+                        <div class="offer-details">
+                            <div class="offer-title">Parrot FPV Combo Anafi Drone</div>
+                            <div class="offer-price">$499.00</div>
+                            <!-- <button class="choose-button">CHOOSE OFFER</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="get-quotes-box" style="background-color: #f8f8f8; padding: 15px; border-radius: 4px; margin-bottom: 20px;">
+                <h3 style="margin-bottom: 10px; font-size: 16px;">Get Lowest Price Alerts</h3>
+                <p style="font-size: 13px; margin-bottom: 10px; color: #666;">Enter your email to receive alerts when prices drop for this product</p>
+                <form style="display: flex; margin-top: 10px;">
+                    <input type="email" placeholder="Your email" style="flex: 1; padding: 8px; border: 1px solid #ddd; border-radius: 4px 0 0 4px;">
+                    <button style="background-color: #ff3a2f; color: white; border: none; padding: 8px 15px; border-radius: 0 4px 4px 0; cursor: pointer;">Alert me</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <p>Re-compare is professional consumer comparing site aimed to help the people find the best products and deals. We provide best price live comparisons and easy to understand reviews of these products and their respective features.</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>For customers</h3>
+                <a href="#">Product for review</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Your Audit</a>
+                <a href="#">Catalog</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>For vendors</h3>
+                <a href="#">Dashboard</a>
+                <a href="#">How to sell</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Catalog</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Sign Up for Weekly Newsletter</h3>
+                <p>Get comparative reviews/product reviews before any email</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Email address">
+                    <button>SUBSCRIBE</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Thumbnail gallery functionality
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const mainImage = document.querySelector('.main-image img');
+            
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    // Remove active class from all thumbnails
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked thumbnail
+                    this.classList.add('active');
+                    
+                    // Change main image source to the thumbnail source
+                    const thumbnailSrc = this.querySelector('img').src;
+                    mainImage.src = thumbnailSrc.replace('50x50', '400x300');
+                });
+            });
+            
+            // Expandable sections functionality
+            const sectionHeaders = document.querySelectorAll('.section-header');
+            
+            sectionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    
+                    const content = this.nextElementSibling;
+                    content.classList.toggle('active');
+                });
+            });
+            
+            // Video play functionality
+            const videoThumbnails = document.querySelectorAll('.video-thumbnail');
+            
+            videoThumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    const videoId = this.getAttribute('data-video-id') || 'dQw4w9WgXcQ'; // Default video
+                    
+                    // Create modal for video playback
+                    const modal = document.createElement('div');
+                    modal.style.position = 'fixed';
+                    modal.style.top = '0';
+                    modal.style.left = '0';
+                    modal.style.width = '100%';
+                    modal.style.height = '100%';
+                    modal.style.backgroundColor = 'rgba(0,0,0,0.9)';
+                    modal.style.display = 'flex';
+                    modal.style.alignItems = 'center';
+                    modal.style.justifyContent = 'center';
+                    modal.style.zIndex = '1000';
+                    
+                    const iframe = document.createElement('iframe');
+                    iframe.width = '80%';
+                    iframe.height = '60%';
+                    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                    iframe.frameBorder = '0';
+                    iframe.allowFullscreen = true;
+                    
+                    const closeBtn = document.createElement('div');
+                    closeBtn.innerHTML = '&times;';
+                    closeBtn.style.position = 'absolute';
+                    closeBtn.style.top = '20px';
+                    closeBtn.style.right = '30px';
+                    closeBtn.style.color = 'white';
+                    closeBtn.style.fontSize = '40px';
+                    closeBtn.style.cursor = 'pointer';
+                    
+                    closeBtn.addEventListener('click', function() {
+                        document.body.removeChild(modal);
+                    });
+                    
+                    modal.appendChild(iframe);
+                    modal.appendChild(closeBtn);
+                    document.body.appendChild(modal);
+                });
+            });
+            
+            // Buy button functionality
+            const buyButton = document.querySelector('.buy-button');
+            
+            buyButton.addEventListener('click', function() {
+                // Get the store link for the best price
+                window.open('https://www.ebay.com/p/26031986844?iid=256858871665', '_blank');
+            });
+
+            const buyButtonEbay = document.querySelector('.buy-now-button-ebay');
+            
+            buyButtonEbay.addEventListener('click', function() {
+                // Get the store link for the best price
+                window.open('https://www.ebay.com/p/26031986844?iid=256858871665', '_blank');
+            });
+
+            const buyButtonNewEgg = document.querySelector('.buy-now-button-newegg');
+            
+            buyButtonNewEgg.addEventListener('click', function() {
+                // Get the store link for the best price
+                window.open('https://www.newegg.com/p/380-00JE-00010', '_blank');
+            });
+            
+            // Add to compare functionality
+            const addCompareButtons = document.querySelectorAll('.add-compare-btn');
+            
+            addCompareButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<i class="fas fa-check"></i> Added to compare';
+                    this.style.backgroundColor = '#5cb85c';
+                    this.style.color = 'white';
+                    this.style.borderColor = '#5cb85c';
+                    
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.style.backgroundColor = '';
+                        this.style.color = '';
+                        this.style.borderColor = '';
+                    }, 2000);
+                });
+            });
+            
+            // Add to wishlist functionality
+            const wishlistButton = document.querySelector('.action-button:nth-child(2)');
+            
+            wishlistButton.addEventListener('click', function() {
+                const heartIcon = this.querySelector('i');
+                
+                if (heartIcon.classList.contains('far')) {
+                    heartIcon.classList.remove('far');
+                    heartIcon.classList.add('fas');
+                    heartIcon.style.color = '#dc3545';
+                    this.querySelector('span').textContent = 'Added to wishlist';
+                } else {
+                    heartIcon.classList.remove('fas');
+                    heartIcon.classList.add('far');
+                    heartIcon.style.color = '';
+                    this.querySelector('span').textContent = 'Add to wishlist';
+                }
+            });
+            
+            // Offer buttons functionality
+            const offerButtons = document.querySelectorAll('.choose-button, .choose-offer-btn');
+            
+            offerButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Create a popup to show offer details
+                    const modal = document.createElement('div');
+                    modal.style.position = 'fixed';
+                    modal.style.top = '0';
+                    modal.style.left = '0';
+                    modal.style.width = '100%';
+                    modal.style.height = '100%';
+                    modal.style.backgroundColor = 'rgba(0,0,0,0.7)';
+                    modal.style.display = 'flex';
+                    modal.style.alignItems = 'center';
+                    modal.style.justifyContent = 'center';
+                    modal.style.zIndex = '1000';
+                    
+                    const content = document.createElement('div');
+                    content.style.backgroundColor = 'white';
+                    content.style.padding = '30px';
+                    content.style.borderRadius = '8px';
+                    content.style.maxWidth = '500px';
+                    content.style.width = '90%';
+                    
+                    content.innerHTML = `
+                        <h2 style="margin-bottom: 15px;">Choose an Offer</h2>
+                        <p style="margin-bottom: 20px;">Select from available offers for Yuneec Breeze 4K:</p>
+                        <div style="border: 1px solid #eee; padding: 15px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <div style="font-weight: bold;">eBay.com</div>
+                                <div style="color: #dc3545; font-weight: bold;">$140.59</div>
+                                <div style="font-size: 12px; color: #666;">Free shipping</div>
+                            </div>
+                            <button style="background-color: #5cb85c; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer;">Buy Now</button>
+                        </div>
+                        <div style="border: 1px solid #eee; padding: 15px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <div style="font-weight: bold;">Newegg.com</div>
+                                <div style="color: #dc3545; font-weight: bold;">$179.99</div>
+                                <div style="font-size: 12px; color: #666;">+ $5.99 shipping</div>
+                            </div>
+                            <button style="background-color: #5cb85c; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer;">Buy Now</button>
+                        </div>
+                        <button style="background-color: #f0f0f0; color: #333; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; width: 100%;">Close</button>
+                    `;
+                    
+                    modal.appendChild(content);
+                    document.body.appendChild(modal);
+                    
+                    // Close functionality
+                    const closeButton = content.querySelector('button:last-child');
+                    closeButton.addEventListener('click', function() {
+                        document.body.removeChild(modal);
+                    });
+                    
+                    // Buy Now buttons functionality
+                    const buyNowButtons = content.querySelectorAll('button:not(:last-child)');
+                    buyNowButtons.forEach((btn, index) => {
+                        btn.addEventListener('click', function() {
+                            const storeName = index === 0 ? 'eBay.com' : 'Newegg.com';
+                            window.open(index === 0 ? 'https://www.ebay.com' : 'https://www.newegg.com', '_blank');
+                            document.body.removeChild(modal);
+                        });
+                    });
+                });
+            });
+            
+            // Price alert functionality
+            const alertForm = document.querySelector('.get-quotes-box form');
+            if (alertForm) {
+                alertForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = this.querySelector('input').value;
+                    if (email) {
+                        const button = this.querySelector('button');
+                        const originalText = button.textContent;
+                        button.textContent = 'Subscribed!';
+                        button.style.backgroundColor = '#5cb85c';
+                        
+                        setTimeout(() => {
+                            button.textContent = originalText;
+                            button.style.backgroundColor = '';
+                            this.reset();
+                        }, 2000);
+                    }
+                });
+            }
+        });
+
+        // Add this to your existing JavaScript code
+document.addEventListener('DOMContentLoaded', function() {
+    // Image lightbox/gallery functionality
+    const mainImage = document.querySelector('.main-image img');
+    const thumbnails = document.querySelectorAll('.thumbnail img');
+    
+    // Create array of all image sources for the gallery
+    const imageSources = [
+        'uploads/2017/08/YUNQ4KUS_01-scaled.jpg',
+        'uploads/2017/08/YUNQ4KUS_02-scaled.jpg',
+        'uploads/2017/08/YUNQ4KUS_03-scaled.jpg',
+        'uploads/2017/08/YUNQ4KUS_04-scaled.jpg',
+        'uploads/2017/08/YUNQ4KUS_05-scaled.jpg',
+        'uploads/2017/08/YUNQ4KUS_06-scaled.jpg',
+    ];
+    
+    // Set click handler for main image to open lightbox
+    mainImage.addEventListener('click', function() {
+        openLightbox(0); // Open lightbox with the first image
+    });
+    
+    // Set click handlers for thumbnails
+    thumbnails.forEach((thumbnail, index) => {
+        thumbnail.addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent triggering main image click
+            const activeIndex = Array.from(thumbnails).findIndex(thumb => 
+                thumb.parentElement.classList.contains('active'));
+            openLightbox(activeIndex);
+        });
+    });
+    
+    function openLightbox(initialIndex) {
+        // Create lightbox container
+        const lightbox = document.createElement('div');
+        lightbox.className = 'lightbox';
+        lightbox.style.position = 'fixed';
+        lightbox.style.top = '0';
+        lightbox.style.left = '0';
+        lightbox.style.width = '100%';
+        lightbox.style.height = '100%';
+        lightbox.style.backgroundColor = 'rgba(0, 0, 0, 1)';
+        lightbox.style.zIndex = '9999';
+        lightbox.style.display = 'flex';
+        lightbox.style.flexDirection = 'column';
+        lightbox.style.justifyContent = 'space-between';
+        
+        // Create header with counter, controls
+        const header = document.createElement('div');
+        header.className = 'lightbox-header';
+        header.style.padding = '15px';
+        header.style.display = 'flex';
+        header.style.justifyContent = 'space-between';
+        header.style.alignItems = 'center';
+        header.style.color = 'white';
+        
+        const counter = document.createElement('div');
+        counter.className = 'lightbox-counter';
+        counter.style.fontSize = '14px';
+        
+        const controls = document.createElement('div');
+        controls.className = 'lightbox-controls';
+        controls.style.display = 'flex';
+        controls.style.gap = '20px';
+        
+        const zoomBtn = document.createElement('button');
+        zoomBtn.innerHTML = '<i class="fas fa-search-plus"></i>';
+        zoomBtn.style.background = 'none';
+        zoomBtn.style.border = 'none';
+        zoomBtn.style.color = 'white';
+        zoomBtn.style.fontSize = '20px';
+        zoomBtn.style.cursor = 'pointer';
+        
+        const playBtn = document.createElement('button');
+        playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        playBtn.style.background = 'none';
+        playBtn.style.border = 'none';
+        playBtn.style.color = 'white';
+        playBtn.style.fontSize = '20px';
+        playBtn.style.cursor = 'pointer';
+        
+        const fullscreenBtn = document.createElement('button');
+        fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
+        fullscreenBtn.style.background = 'none';
+        fullscreenBtn.style.border = 'none';
+        fullscreenBtn.style.color = 'white';
+        fullscreenBtn.style.fontSize = '20px';
+        fullscreenBtn.style.cursor = 'pointer';
+        
+        const closeBtn = document.createElement('button');
+        closeBtn.innerHTML = '<i class="fas fa-times"></i>';
+        closeBtn.style.background = 'none';
+        closeBtn.style.border = 'none';
+        closeBtn.style.color = 'white';
+        closeBtn.style.fontSize = '20px';
+        closeBtn.style.cursor = 'pointer';
+        
+        controls.appendChild(zoomBtn);
+        controls.appendChild(playBtn);
+        controls.appendChild(fullscreenBtn);
+        controls.appendChild(closeBtn);
+        
+        header.appendChild(counter);
+        header.appendChild(controls);
+        
+        // Create main image area
+        const imageContainer = document.createElement('div');
+        imageContainer.className = 'lightbox-image-container';
+        imageContainer.style.display = 'flex';
+        imageContainer.style.justifyContent = 'center';
+        imageContainer.style.alignItems = 'center';
+        imageContainer.style.flex = '1';
+        imageContainer.style.position = 'relative';
+        
+        const prevBtn = document.createElement('button');
+        prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+        prevBtn.className = 'nav-arrow prev';
+        prevBtn.style.position = 'absolute';
+        prevBtn.style.left = '20px';
+        prevBtn.style.top = '50%';
+        prevBtn.style.transform = 'translateY(-50%)';
+        prevBtn.style.background = 'none';
+        prevBtn.style.border = 'none';
+        prevBtn.style.color = 'white';
+        prevBtn.style.fontSize = '30px';
+        prevBtn.style.cursor = 'pointer';
+        prevBtn.style.zIndex = '1';
+        
+        const nextBtn = document.createElement('button');
+        nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+        nextBtn.className = 'nav-arrow next';
+        nextBtn.style.position = 'absolute';
+        nextBtn.style.right = '20px';
+        nextBtn.style.top = '50%';
+        nextBtn.style.transform = 'translateY(-50%)';
+        nextBtn.style.background = 'none';
+        nextBtn.style.border = 'none';
+        nextBtn.style.color = 'white';
+        nextBtn.style.fontSize = '30px';
+        nextBtn.style.cursor = 'pointer';
+        nextBtn.style.zIndex = '1';
+        
+        const image = document.createElement('img');
+        image.className = 'lightbox-image';
+        image.style.maxHeight = 'calc(100vh - 200px)';
+        image.style.maxWidth = '80%';
+        image.style.objectFit = 'contain';
+        image.style.transition = 'transform 0.3s ease';
+        
+        imageContainer.appendChild(prevBtn);
+        imageContainer.appendChild(image);
+        imageContainer.appendChild(nextBtn);
+        
+        // Create thumbnails strip
+        const thumbnailsStrip = document.createElement('div');
+        thumbnailsStrip.className = 'lightbox-thumbnails';
+        thumbnailsStrip.style.display = 'flex';
+        thumbnailsStrip.style.justifyContent = 'center';
+        thumbnailsStrip.style.gap = '10px';
+        thumbnailsStrip.style.padding = '15px';
+        thumbnailsStrip.style.backgroundColor = 'black';
+        thumbnailsStrip.style.overflowX = 'auto';
+        thumbnailsStrip.style.whiteSpace = 'nowrap';
+        
+        // Add thumbnails
+        imageSources.forEach((src, idx) => {
+            const thumb = document.createElement('div');
+            thumb.className = 'lightbox-thumb';
+            thumb.style.width = '80px';
+            thumb.style.height = '80px';
+            thumb.style.border = '2px solid transparent';
+            thumb.style.cursor = 'pointer';
+            thumb.style.display = 'inline-flex';
+            thumb.style.justifyContent = 'center';
+            thumb.style.alignItems = 'center';
+            
+            const thumbImg = document.createElement('img');
+            thumbImg.src = src;
+            thumbImg.style.maxWidth = '100%';
+            thumbImg.style.maxHeight = '100%';
+            thumbImg.style.objectFit = 'contain';
+            
+            thumb.appendChild(thumbImg);
+            thumbnailsStrip.appendChild(thumb);
+            
+            // Set click handler for thumbnail
+            thumb.addEventListener('click', function() {
+                currentIndex = idx;
+                updateLightbox();
+            });
+        });
+        
+        // Add all elements to lightbox
+        lightbox.appendChild(header);
+        lightbox.appendChild(imageContainer);
+        lightbox.appendChild(thumbnailsStrip);
+        
+        // Add lightbox to the document
+        document.body.appendChild(lightbox);
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+        
+        // Initialize state
+        let currentIndex = initialIndex;
+        let isFullscreen = false;
+        let zoomLevel = 1;
+        
+        // Update the lightbox with current image
+        function updateLightbox() {
+            image.src = imageSources[currentIndex];
+            counter.textContent = `${currentIndex + 1} / ${imageSources.length}`;
+            
+            // Update active thumbnail
+            const thumbnails = thumbnailsStrip.querySelectorAll('.lightbox-thumb');
+            thumbnails.forEach((thumb, idx) => {
+                if (idx === currentIndex) {
+                    thumb.style.border = '2px solid white';
+                } else {
+                    thumb.style.border = '2px solid transparent';
+                }
+            });
+            
+            // Scroll thumbnail into view if needed
+            thumbnails[currentIndex].scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+                inline: 'center'
+            });
+            
+            // Reset zoom
+            zoomLevel = 1;
+            image.style.transform = 'scale(1)';
+        }
+        
+        // Initialize
+        updateLightbox();
+        
+        // Event handlers
+        prevBtn.addEventListener('click', function() {
+            currentIndex = (currentIndex - 1 + imageSources.length) % imageSources.length;
+            updateLightbox();
+        });
+        
+        nextBtn.addEventListener('click', function() {
+            currentIndex = (currentIndex + 1) % imageSources.length;
+            updateLightbox();
+        });
+        
+        closeBtn.addEventListener('click', function() {
+            document.body.removeChild(lightbox);
+            document.body.style.overflow = '';
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                prevBtn.click();
+            } else if (e.key === 'ArrowRight') {
+                nextBtn.click();
+            } else if (e.key === 'Escape') {
+                closeBtn.click();
+            }
+        });
+        
+        // Zoom functionality
+        zoomBtn.addEventListener('click', function() {
+            if (zoomLevel === 1) {
+                zoomLevel = 2;
+                image.style.transform = 'scale(2)';
+            } else {
+                zoomLevel = 1;
+                image.style.transform = 'scale(1)';
+            }
+        });
+        
+        // Fullscreen functionality
+        fullscreenBtn.addEventListener('click', function() {
+            if (!isFullscreen) {
+                if (lightbox.requestFullscreen) {
+                    lightbox.requestFullscreen();
+                } else if (lightbox.webkitRequestFullscreen) {
+                    lightbox.webkitRequestFullscreen();
+                } else if (lightbox.msRequestFullscreen) {
+                    lightbox.msRequestFullscreen();
+                }
+                isFullscreen = true;
+                fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+                isFullscreen = false;
+                fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
+            }
+        });
+        
+        // Slideshow functionality
+        let slideshowInterval = null;
+        
+        playBtn.addEventListener('click', function() {
+            if (!slideshowInterval) {
+                slideshowInterval = setInterval(function() {
+                    nextBtn.click();
+                }, 3000);
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
+                clearInterval(slideshowInterval);
+                slideshowInterval = null;
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        });
+        
+        // Clean up event listener when lightbox is closed
+        closeBtn.addEventListener('click', function() {
+            if (slideshowInterval) {
+                clearInterval(slideshowInterval);
+            }
+            document.body.removeChild(lightbox);
+            document.body.style.overflow = '';
+        });
+    }
+});
+    </script>
+</body>
+</html>

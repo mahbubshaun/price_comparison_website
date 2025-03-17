@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Re-Compare</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        
+        header {
+            background-color: #1a1a1a;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-menu a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-menu a.active {
+            border-bottom: 2px solid #ff3a2f;
+        }
+        
+        .orange {
+            color: #ff6600;
+        }
+        
+        .dropdown-icon {
+            margin-left: 5px;
+            font-size: 12px;
+        }
+        
+        .search-icon {
+            font-size: 18px;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 15px 20px;
+            background-color: #f0f0f0;
+            display: flex;
+            font-size: 14px;
+        }
+        
+        .breadcrumb a {
+            color: #333;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            margin-right: 10px;
+        }
+        
+        /* Main content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+        }
+        
+        /* Filter sidebar */
+        .filter-sidebar {
+            width: 250px;
+            margin-right: 30px;
+        }
+        
+        .filter-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .filter-icon {
+            color: #ff3a2f;
+            margin-right: 10px;
+        }
+        
+        .browse-categories {
+            margin-bottom: 30px;
+        }
+        
+        .category-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .category-list {
+            list-style: none;
+        }
+        
+        .category-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .category-item a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+            transition: color 0.2s;
+        }
+        
+        .category-item a:hover {
+            color: #ff3a2f;
+        }
+        
+        .category-item.active a {
+            color: #ff3a2f;
+            font-weight: 500;
+        }
+        
+        .filter-section {
+            margin-bottom: 25px;
+        }
+        
+        .filter-title {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .filter-title i {
+            font-size: 12px;
+            transition: transform 0.3s;
+        }
+        
+        .filter-title.collapsed i {
+            transform: rotate(-90deg);
+        }
+        
+        .filter-options {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .filter-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .filter-checkbox {
+            margin-right: 10px;
+        }
+        
+        .price-range {
+            margin-top: 15px;
+        }
+        
+        .price-inputs {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .price-input {
+            flex: 1;
+        }
+        
+        .price-input input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .apply-btn {
+            background-color: #ff3a2f;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        
+        .apply-btn:hover {
+            background-color: #e6342a;
+        }
+        
+        .reset-btn {
+            background-color: #f0f0f0;
+            color: #333;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+        
+        .reset-btn:hover {
+            background-color: #e0e0e0;
+        }
+        
+        /* Products grid */
+        .products-section {
+            flex: 1;
+        }
+        
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .results-count {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .sorting-options {
+            display: flex;
+            align-items: center;
+        }
+        
+        .sort-label {
+            margin-right: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .sort-select {
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .discount-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #5cb85c;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .card-actions {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .card-action-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: white;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .card-action-btn:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .card-action-btn i {
+            color: #999;
+            font-size: 14px;
+        }
+        
+        .card-action-btn:hover i.fa-heart {
+            color: #ff3a2f;
+        }
+        
+        .product-image {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .product-image img {
+            max-width: 100%;
+            max-height: 160px;
+            object-fit: contain;
+        }
+        
+        .product-details {
+            padding: 15px;
+        }
+        
+        .product-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #333;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .product-title:hover {
+            color: #ff3a2f;
+        }
+        
+        .product-rating {
+            color: #ffc107;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .product-features {
+            margin-bottom: 15px;
+        }
+        
+        .product-feature {
+            display: flex;
+            align-items: flex-start;
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .product-feature i {
+            color: #333;
+            margin-right: 5px;
+            margin-top: 4px;
+            font-size: 6px;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            color: #ff3a2f;
+            font-size: 18px;
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .add-to-cart {
+            width: 36px;
+            height: 36px;
+            background-color: #ff3a2f;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .add-to-cart:hover {
+            background-color: #e6342a;
+        }
+        
+        .load-more {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .load-more-btn {
+            background-color: white;
+            border: 1px solid #ddd;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+        
+        .load-more-btn:hover {
+            background-color: #f0f0f0;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-column {
+            width: 25%;
+        }
+        
+        .footer-column h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        
+        .footer-column p,
+        .footer-column a {
+            color: #ccc;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 5px;
+            text-decoration: none;
+        }
+        
+        .newsletter {
+            margin-top: 20px;
+        }
+        
+        .newsletter p {
+            margin-bottom: 10px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+        }
+        
+        .newsletter-form button {
+            background-color: #ff3a2f;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 1000px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .filter-sidebar {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 30px;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-menu a span {
+                display: none;
+            }
+        }
+        
+        /* Filter active indicator */
+        .filters-active {
+            display: inline-block;
+            background-color: #ff3a2f;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            margin-left: 5px;
+        }
+        
+        /* Mobile filter toggle */
+        .mobile-filter-toggle {
+            display: none;
+            background-color: #ff3a2f;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            font-size: 14px;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mobile-filter-toggle i {
+            margin-right: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-filter-toggle {
+                display: flex;
+            }
+            
+            .filter-sidebar {
+                display: none;
+            }
+            
+            .filter-sidebar.active {
+                display: block;
+            }
+        }
+        header {
+background-color: #1a1a1a;
+padding: 10px 20px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+color: white;
+}
+
+.logo {
+font-weight: bold;
+color: white;
+text-decoration: none;
+font-size: 20px;
+font-weight: 700;
+}
+
+.nav-menu {
+display: flex;
+align-items: center;
+}
+
+.nav-menu a {
+color: white;
+margin: 0 10px;
+text-decoration: none;
+font-size: 16px;
+font-weight: bolder;
+}
+
+footer {
+background-color: #1a1a1a;
+color: white;
+padding: 40px 20px;
+}
+
+.footer-content {
+display: flex;
+justify-content: space-between;
+max-width: 1200px;
+margin: 0 auto;
+gap: 15px;
+}
+
+.footer-column {
+width: 25%;
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+
+.footer-column h3 {
+font-size: 16px;
+margin-bottom: 15px;
+}
+
+.footer-column p,
+.footer-column a {
+color: #ccc;
+font-size: 14px;
+display: block;
+margin-bottom: 5px;
+text-decoration: none;
+}
+
+.newsletter {
+margin-top: 20px;
+}
+
+.newsletter p {
+margin-bottom: 10px;
+}
+
+.newsletter-form {
+display: flex;
+}
+
+.newsletter-form input {
+flex: 1;
+padding: 10px;
+border: none;
+}
+
+.newsletter-form button {
+background-color: #ff3a2f;
+color: white;
+border: none;
+padding: 10px 15px;
+cursor: pointer;
+}
+    </style>
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">PriceScout</a>
+        <div class="nav-menu">
+            <a href="shop.html">Shop</a>
+            <!-- <a href="#" class="orange">Unique Functions <i class="fas fa-caret-down"></i></a>
+            <a href="#">Best comparison pages <i class="fas fa-caret-down"></i></a> -->
+            <a href="#">My wishlist</a>
+            <!-- <a href="#">Tutorials</a> -->
+            <!-- <a href="#"><i class="fas fa-search"></i></a> -->
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>></span>
+        <span>Shop</span>
+    </div>
+
+    <div class="main-content">
+        <button class="mobile-filter-toggle">
+            <i class="fas fa-filter"></i> Show Filters
+        </button>
+        
+        <div class="filter-sidebar">
+            <div class="filter-header">
+                <i class="fas fa-filter filter-icon"></i>
+                <span>Filter products</span>
+                <span class="filters-active" id="filters-count"></span>
+            </div>
+            
+            <div class="browse-categories">
+                <h3 class="category-title">Browse Categories:</h3>
+                <ul class="category-list">
+                    <li class="category-item active"><a href="#" data-category="all">Compact drones</a></li>
+                    <li class="category-item"><a href="#" data-category="selfie">Selfie drones</a></li>
+                    <li class="category-item"><a href="#" data-category="sport">Sport drones</a></li>
+                    <li class="category-item"><a href="#" data-category="professional">Professional drones</a></li>
+                    <li class="category-item"><a href="#" data-category="other">Other</a></li>
+                    <li class="category-item"><a href="#" data-category="uncategorized">Uncategorized</a></li>
+                </ul>
+            </div>
+            
+            <div class="filter-section">
+                <h3 class="filter-title">Brand <i class="fas fa-chevron-down"></i></h3>
+                <div class="filter-options">
+                    <div class="filter-option">
+                        <input type="checkbox" id="brand-dji" class="filter-checkbox" data-filter="brand" data-value="dji">
+                        <label for="brand-dji">DJI</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="brand-parrot" class="filter-checkbox" data-filter="brand" data-value="parrot">
+                        <label for="brand-parrot">Parrot</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="brand-yuneec" class="filter-checkbox" data-filter="brand" data-value="yuneec">
+                        <label for="brand-yuneec">Yuneec</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="brand-gopro" class="filter-checkbox" data-filter="brand" data-value="gopro">
+                        <label for="brand-gopro">GoPro</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="brand-eachine" class="filter-checkbox" data-filter="brand" data-value="eachine">
+                        <label for="brand-eachine">Eachine</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="brand-swellpro" class="filter-checkbox" data-filter="brand" data-value="swellpro">
+                        <label for="brand-swellpro">Swellpro</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="filter-section">
+                <h3 class="filter-title">Camera Resolution <i class="fas fa-chevron-down"></i></h3>
+                <div class="filter-options">
+                    <div class="filter-option">
+                        <input type="checkbox" id="camera-4k" class="filter-checkbox" data-filter="camera" data-value="4k">
+                        <label for="camera-4k">4K</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="camera-1080p" class="filter-checkbox" data-filter="camera" data-value="1080p">
+                        <label for="camera-1080p">1080p</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="camera-720p" class="filter-checkbox" data-filter="camera" data-value="720p">
+                        <label for="camera-720p">720p</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="camera-none" class="filter-checkbox" data-filter="camera" data-value="none">
+                        <label for="camera-none">No Camera</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="filter-section">
+                <h3 class="filter-title">Flight Time <i class="fas fa-chevron-down"></i></h3>
+                <div class="filter-options">
+                    <div class="filter-option">
+                        <input type="checkbox" id="flight-under10" class="filter-checkbox" data-filter="flighttime" data-value="under10">
+                        <label for="flight-under10">Under 10 minutes</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="flight-10to20" class="filter-checkbox" data-filter="flighttime" data-value="10to20">
+                        <label for="flight-10to20">10-20 minutes</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="flight-20to30" class="filter-checkbox" data-filter="flighttime" data-value="20to30">
+                        <label for="flight-20to30">20-30 minutes</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="flight-over30" class="filter-checkbox" data-filter="flighttime" data-value="over30">
+                        <label for="flight-over30">Over 30 minutes</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="filter-section">
+                <h3 class="filter-title">Price Range <i class="fas fa-chevron-down"></i></h3>
+                <div class="filter-options">
+                    <div class="price-range">
+                        <div class="price-inputs">
+                            <div class="price-input">
+                                <input type="number" id="price-min" placeholder="Min" min="0">
+                            </div>
+                            <div class="price-input">
+                                <input type="number" id="price-max" placeholder="Max" min="0">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="filter-buttons">
+                <button id="apply-filters" class="apply-btn">Apply Filters</button>
+                <button id="reset-filters" class="reset-btn">Reset</button>
+            </div>
+        </div>
+        
+        <div class="products-section">
+            <div class="results-header">
+                <div class="results-count">
+                    <span id="results-showing">Showing 1 - 12 of 15 results</span>
+                </div>
+                <div class="sorting-options">
+                    <span class="sort-label">Sort by:</span>
+                    <select id="sort-select" class="sort-select">
+                        <option value="relevance">Relevance</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="rating">Customer Rating</option>
+                        <option value="newest">Newest First</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="products-grid" id="products-grid">
+                <!-- Products will be dynamically inserted here -->
+            </div>
+            
+            <div class="load-more">
+                <button id="load-more-btn" class="load-more-btn">LOAD MORE</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <p>Recompare is modern all in one price comparison and review theme with best solutions for affiliate marketing. This demo site is only for demonstration purposes. All images are copyrighted to their respective owners. All content cited is derived from their respective sources.</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>For customers</h3>
+                <a href="#">Product for review</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Best deals</a>
+                <a href="#">Catalog</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>For vendors</h3>
+                <a href="#">Testimonial</a>
+                <a href="#">How to sell</a>
+                <a href="#">Donate Us</a>
+                <a href="#">Catalog</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Sign Up for Weekly Newsletter</h3>
+                <p>Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Email address">
+                    <button>SUBSCRIBE</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sample product data
+            const products = [
+                {
+                    id: 1,
+                    name: 'DJI Inspire 1 Pro',
+                    brand: 'dji',
+                    category: 'professional',
+                    image: 'uploads/2017/08/YUNQ4KUS_01-scaled.jpg',
+                    price: 978.00,
+                    rating: 4,
+                    camera: '4k',
+                    cameraDetails: 'Camera: 4K 30fps (16 megapixels)',
+                    flightTime: 15,
+                    flightTimeCategory: '10to20',
+                    flightTimeDetails: 'Flight time (min): 15'
+                },
+                {
+                    id: 2,
+                    name: 'DJI Inspire 2',
+                    brand: 'dji',
+                    category: 'professional',
+                    image: 'uploads/2017/08/YUNQ4KUS_02-scaled.jpg',
+                    price: 3299.00,
+                    rating: 5,
+                    camera: '4k',
+                    cameraDetails: 'Camera: 5.2K',
+                    flightTime: 28,
+                    flightTimeCategory: '20to30',
+                    flightTimeDetails: 'Flight time (min): 28'
+                },
+                {
+                    id: 3,
+                    name: 'DJI Mavic Pro 2',
+                    brand: 'dji',
+                    category: 'compact',
+                    image: 'uploads/2017/08/YUNQ4KUS_03-scaled.jpg',
+                    price: 1996.99,
+                    rating: 5,
+                    camera: '4k',
+                    cameraDetails: 'Camera: 4K 30fps',
+                    flightTime: 27,
+                    flightTimeCategory: '20to30',
+                    flightTimeDetails: 'Flight time (min): 27'
+                },
+                {
+                    id: 4,
+                    name: 'DJI Phantom 4 Pro',
+                    brand: 'dji',
+                    category: 'professional',
+                    image: 'uploads/2017/08/YUNQ4KUS_04-scaled.jpg',
+                    price: 1298.00,
+                    rating: 5,
+                    camera: '4k',
+                    cameraDetails: 'Camera: 4K 60fps',
+                    flightTime: 30,
+                    flightTimeCategory: '20to30',
+                    flightTimeDetails: 'Flight time (min): 30',
+                    discount: 15
+                },
+                {
+                    id: 5,
+                    name: 'DJI Spark',
+                    brand: 'dji',
+                    category: 'selfie',
+                    image: 'uploads/2017/08/YUNQ4KUS_05-scaled.jpg',
+                    price: 629.00,
+                    rating: 5,
+                    camera: '1080p',
+                    cameraDetails: 'Camera: -',
+                    flightTime: 15,
+                    flightTimeCategory: '10to20',
+                    flightTimeDetails: 'Flight time (min): 15'
+                },
+                {
+                    id: 6,
+                    name: 'Eachine Wizard X220S FPV',
+                    brand: 'eachine',
+                    category: 'sport',
+                    image: 'uploads/2017/08/YUNQ4KUS_06-scaled.jpg',
+                    price: 215.00,
+                    rating: 4,
+                    camera: 'none',
+                    cameraDetails: 'Camera: -',
+                    flightTime: 6,
+                    flightTimeCategory: 'under10',
+                    flightTimeDetails: 'Flight time (min): 6'
+                },
+                {
+                    id: 7,
+                    name: 'GoPro Karma Drone',
+                    brand: 'gopro',
+                    category: 'compact',
+                    image: 'uploads/2017/08/YUNQ4KUS_01-scaled.jpg',
+                    price: 759.99,
+                    rating: 4,
+                    camera: '4k',
+                    cameraDetails: 'Camera: 4K 60fps',
+                    flightTime: 20,
+                    flightTimeCategory: '20to30',
+                    flightTimeDetails: 'Flight time (min): 20',
+                    discount: 15
+                },
+                {
+                    id: 8,
+                    name: 'Parrot AR.Drone 2.0 Elite',
+                    brand: 'parrot',
+                    category: 'compact',
+                    image: 'uploads/2017/08/YUNQ4KUS_05-scaled.jpg',
+                    price: 199.95,
+                    rating: 4,
+                    camera: '720p',
+                    cameraDetails: 'Camera: 720p 30fps',
+                    flightTime: 12,
+                    flightTimeCategory: '10to20',
+                    flightTimeDetails: 'Flight time (min): 12'
+                },
+                {
+                    id: 9,
+                    name: 'Parrot BEBOP 2 FPV',
+                    brand: 'parrot',
+                    category: 'compact',
+                    image: 'uploads/2017/08/YUNQ4KUS_03-scaled.jpg',
+                    price: 453.99,
+                    rating: 3,
+                    camera: '1080p',
+                    cameraDetails: 'Camera: 1080p 30fps',
+                    flightTime: 25,
+                    flightTimeCategory: '20to30',
+                    flightTimeDetails: 'Flight time (min): 25',
+                    discount: 10
+                },
+                {
+                    id: 10,
+                    name: 'Parrot PF728000 Anafi Drone',
+                    brand: 'parrot',
+                    category: 'compact',
+                    image: 'uploads/2017/08/YUNQ4KUS_04-scaled.jpg',
+                    price: 699.00,
+                    rating: 4,
+                    camera: '4k',
+                    cameraDetails: 'Camera: 720p 30fps',
+                    flightTime: 10,
+                    flightTimeCategory: '10to20',
+                    flightTimeDetails: 'Flight time (min): 10'
+                },
+                {
+                    id: 11,
+                    name: 'Swellpro Waterproof Splash Drone 3',
+                    brand: 'swellpro',
+                    category: 'professional',
+                    image: 'uploads/2017/08/YUNQ4KUS_01-scaled.jpg',
+                    price: 1199.00,
+                    rating: 4,
+                    camera: '4k',
+                    cameraDetails: 'Camera: 4K 60fps',
+                    flightTime: 30,
+                    flightTimeCategory: '20to30',
+                    flightTimeDetails: 'Flight time (min): 30',
+                    discount: 5
+                },
+                {
+                    id: 12,
+                    name: 'Yuneec Breeze 4K',
+                    brand: 'yuneec',
+                    category: 'selfie',
+                    image: 'uploads/2017/08/YUNQ4KUS_05-scaled.jpg',
+                    price: 140.59,
+                    rating: 3,
+                    camera: '4k',
+                    cameraDetails: 'Camera: 4K 30fps',
+                    flightTime: 12,
+                    flightTimeCategory: '10to20',
+                    flightTimeDetails: 'Flight time (min): 12'
+                }
+            ];
+            
+            // DOM elements
+            const productsGrid = document.getElementById('products-grid');
+            const resultsShowing = document.getElementById('results-showing');
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            const sortSelect = document.getElementById('sort-select');
+            const applyFiltersBtn = document.getElementById('apply-filters');
+            const resetFiltersBtn = document.getElementById('reset-filters');
+            const filtersCount = document.getElementById('filters-count');
+            const mobileFilterToggle = document.querySelector('.mobile-filter-toggle');
+            const filterSidebar = document.querySelector('.filter-sidebar');
+            const categoryLinks = document.querySelectorAll('.category-item a');
+            
+            // Filter state
+            let filters = {
+                category: 'all',
+                brand: [],
+                camera: [],
+                flighttime: [],
+                priceMin: null,
+                priceMax: null
+            };
+            
+            // Pagination state
+            let currentPage = 1;
+            const itemsPerPage = 6;
+            let filteredProducts = [...products];
+            
+            // Initialize the page
+            init();
+            
+            function init() {
+                // Apply initial filtering and sorting
+                applyFiltersAndSort();
+                
+                // Render initial products
+                renderProducts();
+                
+                // Set up event listeners
+                setupEventListeners();
+                
+                // Update filter count
+                updateFilterCount();
+            }
+            
+            function setupEventListeners() {
+                // Sort select change
+                sortSelect.addEventListener('change', function() {
+                    applyFiltersAndSort();
+                    renderProducts(true);
+                });
+                
+                // Filter checkboxes
+                const filterCheckboxes = document.querySelectorAll('.filter-checkbox');
+                filterCheckboxes.forEach(checkbox => {
+                    checkbox.addEventListener('change', function() {
+                        const filterType = this.dataset.filter;
+                        const filterValue = this.dataset.value;
+                        
+                        if (this.checked) {
+                            if (!filters[filterType].includes(filterValue)) {
+                                filters[filterType].push(filterValue);
+                            }
+                        } else {
+                            filters[filterType] = filters[filterType].filter(value => value !== filterValue);
+                        }
+                        
+                        updateFilterCount();
+                    });
+                });
+                
+                // Category links
+                categoryLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        // Update active class
+                        categoryLinks.forEach(l => l.parentElement.classList.remove('active'));
+                        this.parentElement.classList.add('active');
+                        
+                        // Update filter
+                        filters.category = this.dataset.category;
+                        
+                        // Apply filters and render
+                        applyFiltersAndSort();
+                        renderProducts(true);
+                        updateFilterCount();
+                    });
+                });
+                
+                // Price range inputs
+                const priceMinInput = document.getElementById('price-min');
+                const priceMaxInput = document.getElementById('price-max');
+                
+                priceMinInput.addEventListener('input', function() {
+                    filters.priceMin = this.value ? parseFloat(this.value) : null;
+                    updateFilterCount();
+                });
+                
+                priceMaxInput.addEventListener('input', function() {
+                    filters.priceMax = this.value ? parseFloat(this.value) : null;
+                    updateFilterCount();
+                });
+                
+                // Apply filters button
+                applyFiltersBtn.addEventListener('click', function() {
+                    applyFiltersAndSort();
+                    renderProducts(true);
+                    
+                    // On mobile, hide filter sidebar after applying
+                    if (window.innerWidth <= 768) {
+                        filterSidebar.classList.remove('active');
+                    }
+                });
+                
+                // Reset filters button
+                resetFiltersBtn.addEventListener('click', function() {
+                    // Reset checkboxes
+                    const filterCheckboxes = document.querySelectorAll('.filter-checkbox');
+                    filterCheckboxes.forEach(checkbox => {
+                        checkbox.checked = false;
+                    });
+                    
+                    // Reset price inputs
+                    document.getElementById('price-min').value = '';
+                    document.getElementById('price-max').value = '';
+                    
+                    // Reset category
+                    categoryLinks.forEach(l => l.parentElement.classList.remove('active'));
+                    categoryLinks[0].parentElement.classList.add('active');
+                    
+                    // Reset filter state
+                    filters = {
+                        category: 'all',
+                        brand: [],
+                        camera: [],
+                        flighttime: [],
+                        priceMin: null,
+                        priceMax: null
+                    };
+                    
+                    // Apply reset filters
+                    applyFiltersAndSort();
+                    renderProducts(true);
+                    updateFilterCount();
+                });
+                
+                // Load more button
+                loadMoreBtn.addEventListener('click', function() {
+                    currentPage++;
+                    renderProducts(false);
+                });
+                
+                // Mobile filter toggle
+                mobileFilterToggle.addEventListener('click', function() {
+                    filterSidebar.classList.toggle('active');
+                    
+                    if (filterSidebar.classList.contains('active')) {
+                        this.innerHTML = '<i class="fas fa-times"></i> Hide Filters';
+                    } else {
+                        this.innerHTML = '<i class="fas fa-filter"></i> Show Filters';
+                    }
+                });
+                
+                // Filter section headers (collapse/expand)
+                const filterTitles = document.querySelectorAll('.filter-title');
+                filterTitles.forEach(title => {
+                    title.addEventListener('click', function() {
+                        this.classList.toggle('collapsed');
+                        const options = this.nextElementSibling;
+                        
+                        if (this.classList.contains('collapsed')) {
+                            options.style.display = 'none';
+                        } else {
+                            options.style.display = 'block';
+                        }
+                    });
+                });
+                
+                // Add to cart buttons
+                document.addEventListener('click', function(e) {
+                    if (e.target.classList.contains('add-to-cart') || e.target.closest('.add-to-cart')) {
+                        const button = e.target.classList.contains('add-to-cart') ? e.target : e.target.closest('.add-to-cart');
+                        const productId = button.dataset.productId;
+                        
+                        // Animation feedback
+                        button.innerHTML = '<i class="fas fa-check"></i>';
+                        setTimeout(() => {
+                            button.innerHTML = '<i class="fas fa-shopping-cart"></i>';
+                        }, 1500);
+                        
+                        // Add to cart logic would go here
+                        console.log(`Product ${productId} added to cart`);
+                    }
+                });
+                
+                // Wishlist buttons
+                document.addEventListener('click', function(e) {
+                    if (e.target.classList.contains('wishlist-btn') || e.target.closest('.wishlist-btn')) {
+                        const button = e.target.classList.contains('wishlist-btn') ? e.target : e.target.closest('.wishlist-btn');
+                        const icon = button.querySelector('i');
+                        
+                        if (icon.classList.contains('far')) {
+                            icon.classList.remove('far');
+                            icon.classList.add('fas');
+                            icon.style.color = '#ff3a2f';
+                        } else {
+                            icon.classList.remove('fas');
+                            icon.classList.add('far');
+                            icon.style.color = '';
+                        }
+                    }
+                });
+            }
+            
+            function applyFiltersAndSort() {
+                // Filter products
+                filteredProducts = products.filter(product => {
+                    // Category filter
+                    if (filters.category !== 'all' && product.category !== filters.category) {
+                        return false;
+                    }
+                    
+                    // Brand filter
+                    if (filters.brand.length > 0 && !filters.brand.includes(product.brand)) {
+                        return false;
+                    }
+                    
+                    // Camera filter
+                    if (filters.camera.length > 0 && !filters.camera.includes(product.camera)) {
+                        return false;
+                    }
+                    
+                    // Flight time filter
+                    if (filters.flighttime.length > 0 && !filters.flighttime.includes(product.flightTimeCategory)) {
+                        return false;
+                    }
+                    
+                    // Price filter - min
+                    if (filters.priceMin !== null && product.price < filters.priceMin) {
+                        return false;
+                    }
+                    
+                    // Price filter - max
+                    if (filters.priceMax !== null && product.price > filters.priceMax) {
+                        return false;
+                    }
+                    
+                    return true;
+                });
+                
+                // Sort products
+                const sortValue = sortSelect.value;
+                
+                switch (sortValue) {
+                    case 'price-low':
+                        filteredProducts.sort((a, b) => a.price - b.price);
+                        break;
+                    case 'price-high':
+                        filteredProducts.sort((a, b) => b.price - a.price);
+                        break;
+                    case 'rating':
+                        filteredProducts.sort((a, b) => b.rating - a.rating);
+                        break;
+                    case 'newest':
+                        // For demo, we'll just reverse the order
+                        filteredProducts.reverse();
+                        break;
+                    default:
+                        // Default sorting (relevance) - no change needed
+                        break;
+                }
+                
+                // Reset pagination
+                currentPage = 1;
+                
+                // Update results count
+                updateResultsCount();
+            }
+            
+            function renderProducts(reset = false) {
+                // If reset, clear the grid
+                if (reset) {
+                    productsGrid.innerHTML = '';
+                }
+                
+                // Calculate start and end indexes for pagination
+                const startIndex = (currentPage - 1) * itemsPerPage;
+                const endIndex = startIndex + itemsPerPage;
+                
+                // Get current page products
+                const currentProducts = filteredProducts.slice(startIndex, endIndex);
+                
+                // Generate HTML for products
+                currentProducts.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+                    
+                    // Add discount tag if product has discount
+                    if (product.discount) {
+                        productCard.innerHTML += `<div class="discount-tag">-${product.discount}%</div>`;
+                    }
+                    
+                    // Add card HTML
+                    productCard.innerHTML += `
+                        <div class="card-actions">
+                            <button class="card-action-btn wishlist-btn">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="card-action-btn">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="product-image">
+                            <img src="${product.image}" alt="${product.name}">
+                        </div>
+                        <div class="product-details">
+                            <a href="product-details.html?id=${product.id}" class="product-title">${product.name}</a>
+                            <div class="product-rating">
+                                ${generateRatingStars(product.rating)}
+                            </div>
+                            <div class="product-features">
+                                <div class="product-feature">
+                                    <i class="fas fa-circle"></i> ${product.cameraDetails}
+                                </div>
+                                <div class="product-feature">
+                                    <i class="fas fa-circle"></i> ${product.flightTimeDetails}
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                <span>$${product.price.toFixed(2)}</span>
+                                <button class="add-to-cart" data-product-id="${product.id}">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    productsGrid.appendChild(productCard);
+                });
+                
+                // Show/hide load more button
+                if (endIndex >= filteredProducts.length) {
+                    loadMoreBtn.style.display = 'none';
+                } else {
+                    loadMoreBtn.style.display = 'inline-block';
+                }
+            }
+            
+            function generateRatingStars(rating) {
+                let stars = '';
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= rating) {
+                        stars += '<i class="fas fa-star"></i>';
+                    } else if (i - 0.5 <= rating) {
+                        stars += '<i class="fas fa-star-half-alt"></i>';
+                    } else {
+                        stars += '<i class="far fa-star"></i>';
+                    }
+                }
+                return stars;
+            }
+            
+            function updateResultsCount() {
+                const totalResults = filteredProducts.length;
+                const showing = Math.min(currentPage * itemsPerPage, totalResults);
+                const start = totalResults === 0 ? 0 : ((currentPage - 1) * itemsPerPage) + 1;
+                
+                resultsShowing.textContent = `Showing ${start} - ${showing} of ${totalResults} results`;
+            }
+            
+            function updateFilterCount() {
+                // Count active filters
+                let count = 0;
+                
+                if (filters.category !== 'all') count++;
+                count += filters.brand.length;
+                count += filters.camera.length;
+                count += filters.flighttime.length;
+                if (filters.priceMin !== null) count++;
+                if (filters.priceMax !== null) count++;
+                
+                // Update UI
+                if (count > 0) {
+                    filtersCount.textContent = count;
+                    filtersCount.style.display = 'inline-block';
+                } else {
+                    filtersCount.style.display = 'none';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
