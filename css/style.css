@@ -62,7 +62,7 @@ padding: 80px 0 120px !important;
 background-size: cover;
 background-repeat: no-repeat;
 background-position: 50% 50%;
-background-image: url('/uploads/2022/06/bg.webp');
+background-image: url('uploads/2022/06/bg.webp');
 display: flex;
 flex-direction: column;
 justify-content: center;
