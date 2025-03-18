@@ -1379,7 +1379,7 @@ cursor: pointer;
                             <img src="${product.image}" alt="${product.name}">
                         </div>
                         <div class="product-details">
-                            <a href="product-details.html?id=${product.id}" class="product-title">${product.name}</a>
+                            <a href="product.html" class="product-title">${product.name}</a>
                             <div class="product-rating">
                                 ${generateRatingStars(product.rating)}
                             </div>
@@ -1401,6 +1401,9 @@ cursor: pointer;
                     `;
                     
                     productsGrid.appendChild(productCard);
+                    productCard.addEventListener('click', function() {
+                window.location.href = 'product.html';
+            });
                 });
                 
                 // Show/hide load more button
@@ -1453,6 +1456,16 @@ cursor: pointer;
                 }
             }
         });
+
+        const productCard = document.querySelectorAll('.product-card');
+
+ productCard.forEach(productCard => {
+    productCard.addEventListener('click', function() {
+                window.location.href = 'product.html';
+            });
+
+
+ });
     </script>
 </body>
 </html>
